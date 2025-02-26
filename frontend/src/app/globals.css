@@ -1,0 +1,358 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Global styles */
+body {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(rgba(255, 140, 0, 0.8), rgba(255, 140, 0, 0.8)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ-cM1g5jM86R0JZP1GuWZW-aaBcC8elAIDmcCC2YGU9Tv8xujh4admp_pFHZ_bPTNXNIbDX0soyJ5fB8D9O75JV3r3zGTEjs0XyUOuntL_iABu2M2JyqS8g7ElBuMpgOZasaybRE5P68/s0-rw/Colet%25C3%25A2nia+Ti%25C3%25A3o+Carreiro+e+Pardinho+%25281%2529.png');
+}
+
+header img.artist-img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 33px;
+  border: 2px solid #fff;
+  display: flex;
+  margin-top: -10px;
+  height: 150px;
+  justify-self: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+h1,
+h2,
+h3 {
+  color: #222;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Submit Form */
+.submit-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.submit-form input[type='url'] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submit-form .submit-button {
+  background: #007BFF;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-form .submit-button:hover {
+  background: #0056b3;
+}
+
+/* Music List */
+.music-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.top-margin {
+  margin-top: 10px !important;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.admin-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 25px !important;
+  padding-left: 20px !important;
+}
+
+.edit-button {
+  background: #268509 !important;
+  color: #fff !important;
+  padding: 10px 15px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+}
+
+.delete-button {
+  background: #ff0000 !important;
+  color: #fff !important;
+  padding: 10px 15px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+}
+
+.nav {
+  background-color: rgb(71, 33, 10) !important;
+}
+
+.music-card:hover {
+  transform: scale(1.02);
+}
+
+.music-card .rank {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007BFF;
+  margin-right: 15px;
+}
+
+.music-card .music-info {
+  flex: 1;
+}
+
+.music-card .music-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.music-card .views {
+  font-size: 14px;
+  color: #666;
+}
+
+.music-card img.thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.login-link,
+.register-link {
+  color: #007BFF !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  margin-right: 5px !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  width: 27% !important;
+  padding: 10px !important;
+}
+
+.login-link:hover,
+.register-link:hover,
+.links:hover {
+  color: chocolate !important;
+}
+
+.links {
+  color: #007BFF !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  margin-right: 25px !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+
+.home-link {
+  margin-right: 20em !important;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.menu-start {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 75% !important;
+}
+
+.menu-center {
+  display: flex !important;
+  justify-content: space-around !important;
+  width: 100% !important;
+}
+
+.menu-end {
+  display: flex !important;
+  justify-content: flex-end !important;
+  width: 40% !important;
+}
+
+.active {
+  font-weight: bold !important;
+  color: #f88181 !important;
+}
+
+.music-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: anchor-center;
+}
+
+.music-link {
+  color: #007BFF;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.link-video {
+  color: #915e1b;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.modal-content {
+  background-color: #fff !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+  margin: 0 auto !important;
+  border: 1px solid #ccc !important;
+}
+
+.prev-button,
+.next-button {
+  background: #007BFF;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.page-info {
+  font-size: 20px;
+  color: #666;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.login-link:hover,
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.music-views {
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+}
+
+.music-user {
+  font-size: 16px;
+  color: #070404;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.input-url {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-title {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.h1-welcome {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .submit-form input[type='url'] {
+    width: 100%;
+  }
+
+  .music-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .music-card img.thumbnail {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+}
