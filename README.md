@@ -33,6 +33,12 @@ git clone https://github.com/leandro-cabeda/top-musicas.git
 - php artisan serve (Subir aplicação do backend na porta 8000)
 - configuração do banco de dados postgresql se encontra no arquivo ".env"
 
+#### 2.1.1. Problema de requisição por causa do CSRF no backend
+Caso tiver problema de requisição ao acessar as rotas por causa do CSRF, pode ser feito a seguinte coisa:
+- Entrar nesse path do arquivo do projeto: ./vendor/laravel/framework/src/Illuminate/Foundation/Configuration/Middleware.php
+- Nisso, vai comentar essa linha onde contém isso:  \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class
+- Na função:  getMiddlewareGroups()  => e com isso irá funcionar para testar pelo menos.
+
 ### 2.2. Passos para instalação e configuração da pasta frontend.
 - npm i --force (instalação das bibliotecas)
 - npm run build (para buildar o projeto)
