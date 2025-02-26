@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Sugestao;
 use App\Models\Musica;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -413,6 +414,12 @@ class MusicaController extends Controller
         $musica = Musica::find($id);
 
         if (!$musica) return response()->json(['message' => 'Musica nao encontrada'], 404);
+
+        $sugestao = Sugestao::where('youtube_id', $musica->youtube_id)->first();
+
+        if ($sugestao) {
+            Sugestao::destroy($sugestao->id);
+        }
 
         return Musica::destroy($id);
     }
