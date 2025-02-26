@@ -18,8 +18,8 @@ novas músicas via link do YouTube.
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/jansenfelipe/top5-tiao-carreiro.git
-cd top5-tiao-carreiro
+git clone https://github.com/leandro-cabeda/top-musicas.git
+
 
 ## 2. Para começar configurar e instalar o projeto segue os passos.
 
