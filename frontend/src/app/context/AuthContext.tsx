@@ -3,7 +3,7 @@
 export const dynamic = "force-dynamic";
 
 import { createContext, useState, useEffect } from 'react';
-import api from '../service/api';
+import Api from '../service/api';
 import Cookies from 'js-cookie';
 import { Context, User } from '@/components/types';
 
@@ -15,6 +15,10 @@ const AuthContext = createContext<Context>({
 
 export const AuthProvider = ({ children }: any) => {
     const [user, setUser] = useState<User | null>(null);
+
+    const api = new Api(() => {
+        window.location.href = "/login";
+      });
 
     useEffect(() => {
         const token = Cookies.get('token') || localStorage.getItem('token');

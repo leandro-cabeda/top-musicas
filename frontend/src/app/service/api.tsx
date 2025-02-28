@@ -4,8 +4,12 @@ import Cookies from 'js-cookie';
 class Api {
   api: AxiosInstance;
 
-  constructor() {
+  private redirectToLogin?: () => void;
 
+  constructor(redirectToLogin?: () => void) {
+
+    this.redirectToLogin = redirectToLogin;
+    
     this.api = axios.create({
       baseURL: 'http://127.0.0.1:8000',
     });
@@ -24,7 +28,9 @@ class Api {
         if (error?.response?.status === 401) {
           Cookies.remove('token');
           localStorage.removeItem('token');
-          window.location.href = '/login';
+          if (typeof window !== "undefined" && this.redirectToLogin) {
+            this.redirectToLogin();
+          }
         }
         return Promise.reject(error);
       }
@@ -32,7 +38,6 @@ class Api {
 
     this.api.defaults.headers.common['Content-Type'] = 'application/json';
     this.api.defaults.headers.common['Accept'] = 'application/json';
-    //this.api.defaults.withCredentials = true;
   }
   async get(url: string): Promise<any> {
     return await this.api.get(url);
@@ -61,4 +66,4 @@ class Api {
 
 }
 
-export default new Api();
+export default Api;

@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 import Loading from '@/components/loading/loading';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { toast } from 'react-toastify';
-import api from '../../app/service/api';
+import Api from '../../app/service/api';
 import { Musica } from '@/components/types';
 import AuthContext from '@/app/context/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -24,6 +24,10 @@ const MusicPage = () => {
     const [editingMusic, setEditingMusic] = useState<Musica | null>(null);
     const formRef: any = useRef(null);
     const limit = 5;
+
+    const api = new Api(() => {
+        window.location.href = "/login";
+      });
 
     const getTopMusics = async (page: number = 1) => {
         setLoading(true);

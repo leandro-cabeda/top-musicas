@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import AuthContext from '../../app/context/AuthContext';
-import api from '../../app/service/api';
+import Api from '../../app/service/api';
 import { toast } from 'react-toastify';
 import Loading from '@/components/loading/loading';
 import '../../components/styles/admin.css';
@@ -24,6 +24,10 @@ const AdminPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const limit = 5;
+
+  const api = new Api(() => {
+    window.location.href = "/login";
+  });
 
   useEffect(() => {
     if (!user) {
