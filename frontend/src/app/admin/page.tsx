@@ -30,6 +30,14 @@ const AdminPage = () => {
   });
 
   useEffect(() => {
+    if (typeof window !== "undefined" && user?.role !== 'admin') {
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 5000);
+    }
+  }, []);
+
+  useEffect(() => {
     if (!user) {
       router.push('/login');
     } else if (user.role !== 'admin') {
@@ -117,10 +125,6 @@ const AdminPage = () => {
 
   if (user?.role !== 'admin' || !user) {
     <div>Acesso restrito. Somente administradores podem acessar esta página.</div>;
-    setTimeout(() => {
-      router.push('/');
-    }, 5000);
-
     return;
   }
 

@@ -250,27 +250,33 @@ class SugestaoController extends Controller
      */
     public function aprovar($id)
     {
+
         $sugestao = Sugestao::findOrFail($id);
+
 
         if (!$sugestao) return response()->json(['message' => 'Sugestão nao encontrada!']);
 
-        if ($sugestao->user_id != Auth::id()) {
-            return response()->json(['message' => 'Sugestão nao pertence ao usuario logado!']);
-        }
 
         if ($sugestao->status == 'aprovado') {
             return response()->json(['message' => 'Sugestão ja foi aprovada!']);
         }
 
+
         $videoId = $this->extractVideoId($sugestao->url);
+
 
         if (!$videoId) return response()->json(['message' => 'URL inválida'], 400);
 
+
         $videoInfo = $this->getVideoInfo($videoId);
+
 
         if (!$videoInfo) return response()->json(['message' => 'Erro ao buscar informações do vídeo'], 400);
 
+
         $sugestao->update(['status' => 'aprovado']);
+
+	Log::info('Sugestão aprovado status', ['sugestao-status' => $sugestao->status]);
 
         $musica = Musica::create([
             'titulo' => $videoInfo['titulo'],
